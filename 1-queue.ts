@@ -40,7 +40,7 @@ class Queue<input> {
   // - Create a method to return the first element without removing it.
   // - If the queue is empty, return null.
 
-  implement(): any | null {
+  front(): any | null {
     if (this.items.length === 0) {
       return null;
     } else {
@@ -74,7 +74,7 @@ queue.enqueue(10);
 queue.enqueue(20);
 queue.enqueue(30);
 queue.print(); // Output: 10 <- 20 <- 30
-// console.log(queue.dequeue()); // 10
-// console.log(queue.front()); // 20
-// console.log(queue.size()); // 2
-// console.log(queue.isEmpty()); // false
+console.log(queue.dequeue()); // 10
+console.log(queue.front()); // 20
+console.log(queue.size()); // 2
+console.log(queue.isEmpty()); // false
