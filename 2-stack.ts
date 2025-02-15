@@ -3,27 +3,54 @@
 // - Look into the private keyword. Make sure we can initialize a stack of any input type.
 // - Initialize the stack in the constructor. Remember, we may need to utilize other data structures here to create the behavior we are looking for.
 
-// Step 2: Implement push method
-// - Create a method to add an element to the stack.
-// - Add the element to the end of the array (top of the stack).
+class Stack<input> {
+  private items: any[];
 
-// Step 3: Implement pop method
-// - Create a method to remove the last element (top of the stack).
-// - If the stack is empty, return null.
-// - Otherwise, remove and return the last item.
+  constructor() {
+    this.items = [];
+  }
 
-// Step 4: Implement peek method
-// - Create a method to return the last element without removing it.
-// - If the stack is empty, return null.
+  // Step 2: Implement push method
+  // - Create a method to add an element to the stack.
+  // - Add the element to the end of the array (top of the stack).
 
-// Step 5: Implement isEmpty and size methods
-// - Create a method to check if the stack is empty.
-// - Create a method to return the number of elements in the stack.
+  push(item: any) {
+    return this.items.push(item);
+  }
 
-// Step 6: Implement print method
-// - Create a method to display the stack elements.
-// - Print elements in order, separated by " | " with the top of the stack on the right.
+  // Step 3: Implement pop method
+  // - Create a method to remove the last element (top of the stack).
+  // - If the stack is empty, return null.
+  // - Otherwise, remove and return the last item.
 
+  pop(): any | null {
+    if (this.items.length === 0) {
+      return null;
+    } else {
+      return this.items.pop();
+    }
+  }
+
+  // Step 4: Implement peek method
+  // - Create a method to return the last element without removing it.
+  // - If the stack is empty, return null.
+
+  peek(): any | null {
+    if (this.items.length === 0) {
+      return null;
+    } else {
+      return this.items[this.items.length - 1];
+    }
+  }
+
+  // Step 5: Implement isEmpty and size methods
+  // - Create a method to check if the stack is empty.
+  // - Create a method to return the number of elements in the stack.
+
+  // Step 6: Implement print method
+  // - Create a method to display the stack elements.
+  // - Print elements in order, separated by " | " with the top of the stack on the right.
+}
 // Uncomment The Code Below to See If It Works! Feel free to write more code to test and examine the functionality of the stack.
 // const stack = new Stack<number>(); // Create a stack that stores numbers
 // stack.push(10);
