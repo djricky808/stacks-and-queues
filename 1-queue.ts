@@ -3,27 +3,46 @@
 // - Look into the private keyword. Make sure we can initialize a queue of any input type.
 // - Initialize the queue in the constructor. Remember, we may need to utilize other data structures here to create the behavior we are looking for.
 
-// Step 2: Implement enqueue method
-// - Create a method to add an element to the queue.
-// - Add the element to the end of the array.
+class Queue {
+  private items: any[];
 
-// Step 3: Implement dequeue method
-// - Create a method to remove the first element.
-// - If the queue is empty, return null.
-// - Otherwise, remove and return the first item.
+  constructor(item: any) {
+    this.items = [];
+  }
 
-// Step 4: Implement front method
-// - Create a method to return the first element without removing it.
-// - If the queue is empty, return null.
+  // Step 2: Implement enqueue method
+  // - Create a method to add an element to the queue.
+  // - Add the element to the end of the array.
 
-// Step 5: Implement isEmpty and size methods
-// - Create a method to check if the queue is empty.
-// - Create a method to return the number of elements in the queue.
+  enqueue(items: any): void {
+    this.items.push(items);
+  }
 
-// Step 6: Implement print method
-// - Create a method to display the queue elements.
-// - Print elements in order, separated by "<-".
+  // Step 3: Implement dequeue method
+  // - Create a method to remove the first element.
+  // - If the queue is empty, return null.
+  // - Otherwise, remove and return the first item.
 
+  dequeue(): any[] | null {
+    if (this.items.length === 0) {
+      return null;
+    } else {
+      return this.items.shift();
+    }
+  }
+
+  // Step 4: Implement front method
+  // - Create a method to return the first element without removing it.
+  // - If the queue is empty, return null.
+
+  // Step 5: Implement isEmpty and size methods
+  // - Create a method to check if the queue is empty.
+  // - Create a method to return the number of elements in the queue.
+
+  // Step 6: Implement print method
+  // - Create a method to display the queue elements.
+  // - Print elements in order, separated by "<-".
+}
 // Uncomment The Code Below to See If It Works! Feel free to write more code to test and examine the functionality of the queue.
 // const queue = new Queue<number>(); // Create a queue that stores numbers
 // queue.enqueue(10);
