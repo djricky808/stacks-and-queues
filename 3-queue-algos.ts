@@ -54,6 +54,10 @@ function reverseQueue(queue: any) {
     reversed.push(queue.items[queue.items.length - 1]);
     queue.items.pop();
   }
+  while (reversed.length > 0) {
+    queue.enqueue(reversed[0]);
+    reversed.shift();
+  }
   console.log(reversed);
   console.log(queue);
 }
