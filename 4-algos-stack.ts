@@ -1,5 +1,5 @@
 // BE SURE TO IMPORT YOUR STACK CLASS
-
+import { Stack } from "./2-stack";
 // ==============================
 // 1️⃣ Reverse a String Using a Stack
 // ==============================
