@@ -40,13 +40,13 @@ function printNumbers(n) {
 // - The queue should be modified **in place**.
 //
 // 📌 Example Test Cases:
-const q = new Queue();
-q.enqueue(1);
-q.enqueue(2);
-q.enqueue(3);
-q.enqueue(4);
-reverseQueue(q);
-console.log(q.dequeue(), q.dequeue(), q.dequeue(), q.dequeue()); // Output: 4 3 2 1
+// const q = new Queue();
+// q.enqueue(1);
+// q.enqueue(2);
+// q.enqueue(3);
+// q.enqueue(4);
+// reverseQueue(q);
+// console.log(q.dequeue(), q.dequeue(), q.dequeue(), q.dequeue()); // Output: 4 3 2 1
 
 function reverseQueue(queue: any) {
   let reversed: any[] = [];
@@ -58,8 +58,6 @@ function reverseQueue(queue: any) {
     queue.enqueue(reversed[0]);
     reversed.shift();
   }
-  console.log(reversed);
-  console.log(queue);
 }
 
 // ==============================
@@ -92,8 +90,21 @@ function generateFibonacci(n) {}
 // - Assume words are **separated by a single space** and there are no leading/trailing spaces.
 //
 // 📌 Example Test Cases:
-// console.log(reverseWords("Hello world"));       // Output: "world Hello"
-// console.log(reverseWords("Queues are fun"));    // Output: "fun are Queues"
-// console.log(reverseWords("Data Structures"));   // Output: "Structures Data"
+console.log(reverseWords("Hello world")); // Output: "world Hello"
+console.log(reverseWords("Queues are fun")); // Output: "fun are Queues"
+console.log(reverseWords("Data Structures")); // Output: "Structures Data"
 
-function reverseWords(sentence) {}
+function reverseWords(sentence: string): string {
+  let split: string[] = sentence.split(" ");
+  let reversed: any[] = [];
+  const queue = new Queue();
+  split.forEach((word: string) => {
+    console.log(word);
+    queue.enqueue(word);
+  });
+  reverseQueue(queue);
+  while (!queue.isEmpty()) {
+    reversed.push(queue.dequeue());
+  }
+  return reversed.join(" ");
+}
