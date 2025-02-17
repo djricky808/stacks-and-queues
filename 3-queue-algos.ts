@@ -72,10 +72,27 @@ function reverseQueue(queue: any) {
 // - Return an array of the first `n` Fibonacci numbers.
 //
 // 📌 Example Test Cases:
-// console.log(generateFibonacci(5)); // Output: [0, 1, 1, 2, 3]
-// console.log(generateFibonacci(7)); // Output: [0, 1, 1, 2, 3, 5, 8]
+console.log(generateFibonacci(5)); // Output: [0, 1, 1, 2, 3]
+console.log(generateFibonacci(7)); // Output: [0, 1, 1, 2, 3, 5, 8]
 
-function generateFibonacci(n) {}
+function generateFibonacci(n: number): number[] {
+  const queue = new Queue();
+  let fib: any[] = [];
+  for (let i = 0; i <= n; i++) {
+    if (i <= 1) {
+      queue.enqueue(i);
+    } else {
+      fib.push(queue.front());
+      console.log(queue);
+      queue.enqueue(queue.dequeue() + queue.front());
+      if (i === n) {
+        fib.push(queue.front());
+      }
+      console.log(fib);
+    }
+  }
+  return fib;
+}
 
 // ==============================
 // [4] Reverse Words in a Sentence Using a Queue
@@ -90,16 +107,15 @@ function generateFibonacci(n) {}
 // - Assume words are **separated by a single space** and there are no leading/trailing spaces.
 //
 // 📌 Example Test Cases:
-console.log(reverseWords("Hello world")); // Output: "world Hello"
-console.log(reverseWords("Queues are fun")); // Output: "fun are Queues"
-console.log(reverseWords("Data Structures")); // Output: "Structures Data"
+// console.log(reverseWords("Hello world")); // Output: "world Hello"
+// console.log(reverseWords("Queues are fun")); // Output: "fun are Queues"
+// console.log(reverseWords("Data Structures")); // Output: "Structures Data"
 
 function reverseWords(sentence: string): string {
   let split: string[] = sentence.split(" ");
   let reversed: any[] = [];
   const queue = new Queue();
   split.forEach((word: string) => {
-    console.log(word);
     queue.enqueue(word);
   });
   reverseQueue(queue);
