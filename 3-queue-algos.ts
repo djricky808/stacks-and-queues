@@ -1,10 +1,6 @@
 // BE SURE TO IMPORT YOUR QUEUE CLASS
 import { Queue } from "./1-queue";
-const test = new Queue<number>(); // Create a queue that stores numbers
-test.enqueue(40);
-test.enqueue(50);
-test.enqueue(60);
-test.print();
+
 // ==============================
 // [1] Print the First `N` Numbers in Increasing Order using a Queue
 // ==============================
