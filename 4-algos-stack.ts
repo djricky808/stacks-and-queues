@@ -6,11 +6,23 @@ import { Stack } from "./2-stack";
 // Write a function that takes a string as input and returns the reversed string using a stack.
 // You may only use stack operations (`push`, `pop`, `isEmpty`).
 
+function reverseString(string: string): string {
+  const stack = new Stack();
+  let reversed: string[] = [];
+  for (let letter of string) {
+    stack.push(letter);
+  }
+  while (!stack.isEmpty()) {
+    reversed.push(stack.pop());
+  }
+  return reversed.join("");
+}
+
 // Example Test Cases:
-// reverseString("hello") // "olleh"
-// reverseString("world") // "dlrow"
-// reverseString("") // ""
-// reverseString("abcd") // "dcba"
+console.log(reverseString("hello")); // "olleh"
+console.log(reverseString("world")); // "dlrow"
+console.log(reverseString("")); // ""
+console.log(reverseString("abcd")); // "dcba"
 
 // ==============================
 // 2️⃣ Check for Balanced Parentheses
