@@ -3,7 +3,7 @@
 // - Look into the private keyword. Make sure we can initialize a queue of any input type.
 // - Initialize the queue in the constructor. Remember, we may need to utilize other data structures here to create the behavior we are looking for.
 
-class Queue<input> {
+export class Queue<input> {
   private items: any[];
 
   constructor() {
@@ -69,12 +69,12 @@ class Queue<input> {
   }
 }
 // Uncomment The Code Below to See If It Works! Feel free to write more code to test and examine the functionality of the queue.
-const queue = new Queue<number>(); // Create a queue that stores numbers
-queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-queue.print(); // Output: 10 <- 20 <- 30
-console.log(queue.dequeue()); // 10
-console.log(queue.front()); // 20
-console.log(queue.size()); // 2
-console.log(queue.isEmpty()); // false
+// const queue = new Queue<number>(); // Create a queue that stores numbers
+// queue.enqueue(10);
+// queue.enqueue(20);
+// queue.enqueue(30);
+// queue.print(); // Output: 10 <- 20 <- 30
+// console.log(queue.dequeue()); // 10
+// console.log(queue.front()); // 20
+// console.log(queue.size()); // 2
+// console.log(queue.isEmpty()); // false
