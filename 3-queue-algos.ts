@@ -1,6 +1,5 @@
 // BE SURE TO IMPORT YOUR QUEUE CLASS
 import { Queue } from "./1-queue";
-import { Stack } from "./2-stack";
 
 // ==============================
 // [1] Print the First `N` Numbers in Increasing Order using a Queue
@@ -27,7 +26,7 @@ function printNumbers(n) {
   return printOrder;
 }
 
-console.log(printNumbers(5));
+//console.log(printNumbers(5));
 
 // ==============================
 // [2] Reverse a Queue
@@ -41,15 +40,23 @@ console.log(printNumbers(5));
 // - The queue should be modified **in place**.
 //
 // 📌 Example Test Cases:
-// const q = new Queue();
-// q.enqueue(1);
-// q.enqueue(2);
-// q.enqueue(3);
-// q.enqueue(4);
-// reverseQueue(q);
-// console.log(q.dequeue(), q.dequeue(), q.dequeue(), q.dequeue()); // Output: 4 3 2 1
+const q = new Queue();
+q.enqueue(1);
+q.enqueue(2);
+q.enqueue(3);
+q.enqueue(4);
+reverseQueue(q);
+console.log(q.dequeue(), q.dequeue(), q.dequeue(), q.dequeue()); // Output: 4 3 2 1
 
-function reverseQueue(queue) {}
+function reverseQueue(queue: any) {
+  let reversed: any[] = [];
+  while (queue.items.length > 0) {
+    reversed.push(queue.items[queue.items.length - 1]);
+    queue.items.pop();
+  }
+  console.log(reversed);
+  console.log(queue);
+}
 
 // ==============================
 // [3] Generate the First N Fibonacci Numbers using a Queue
