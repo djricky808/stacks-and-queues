@@ -96,13 +96,13 @@ function evaluatePostfix(sequence: string): number {
   return stack.peek();
 }
 // Example Test Cases:
-console.log(
-  evaluatePostfix("3 4 +"), // 7
-  evaluatePostfix("5 1 2 + 4 * + 3 -"), // 14
-  evaluatePostfix("10 2 8 * + 3 -"), // 23
-  evaluatePostfix("6 2 /"), // 3
-  evaluatePostfix("4 5 * 2 /") // 10
-);
+// console.log(
+//   evaluatePostfix("3 4 +"), // 7
+//   evaluatePostfix("5 1 2 + 4 * + 3 -"), // 14
+//   evaluatePostfix("10 2 8 * + 3 -"), // 23
+//   evaluatePostfix("6 2 /"), // 3
+//   evaluatePostfix("4 5 * 2 /") // 10
+// );
 
 // ==============================
 // 4️⃣ Next Greater Element
