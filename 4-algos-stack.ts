@@ -19,10 +19,10 @@ function reverseString(string: string): string {
 }
 
 // Example Test Cases:
-console.log(reverseString("hello")); // "olleh"
-console.log(reverseString("world")); // "dlrow"
-console.log(reverseString("")); // ""
-console.log(reverseString("abcd")); // "dcba"
+// console.log(reverseString("hello")); // "olleh"
+// console.log(reverseString("world")); // "dlrow"
+// console.log(reverseString("")); // ""
+// console.log(reverseString("abcd")); // "dcba"
 
 // ==============================
 // 2️⃣ Check for Balanced Parentheses
@@ -31,12 +31,42 @@ console.log(reverseString("abcd")); // "dcba"
 // write a function to determine if the string is valid.
 // A string is valid if brackets are closed in the correct order. Use a stack to track open brackets.
 
+function isValidParentheses(string: string): boolean {
+  const stack = new Stack();
+  for (const symbol of string) {
+    if (symbol === "}") {
+      if (stack.peek() === "{") {
+        stack.pop();
+      } else {
+        return false;
+      }
+    } else if (symbol === "]") {
+      if (stack.peek() === "[") {
+        stack.pop();
+      } else {
+        return false;
+      }
+    } else if (symbol === ")") {
+      if (stack.peek() === "(") {
+        stack.pop();
+      } else {
+        return false;
+      }
+    } else {
+      stack.push(symbol);
+    }
+  }
+  return stack.isEmpty() ? true : false;
+}
+
 // Example Test Cases:
-// isValidParentheses("({[]})") // true
-// isValidParentheses("({[)]}") // false
-// isValidParentheses("()") // true
-// isValidParentheses("{[()]}") // true
-// isValidParentheses("(((") // false
+console.log(
+  isValidParentheses("({[]})"), // true
+  isValidParentheses("({[)]}"), // false
+  isValidParentheses("()"), // true
+  isValidParentheses("{[()]}"), // true
+  isValidParentheses("(((") // false
+);
 
 // ==============================
 // 3️⃣ Evaluate a Postfix Expression
