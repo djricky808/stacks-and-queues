@@ -75,18 +75,20 @@ function evaluatePostfix(sequence: string): number {
     if (isNaN(number)) {
       let newNumber = 0;
       console.log(expression);
+      let value1 = stack.pop();
+      let value2 = stack.pop();
       switch (expression) {
         case "+":
-          newNumber = stack.pop() + stack.pop();
+          newNumber = value2 + value1;
           break;
         case "-":
-          newNumber = stack.pop() - stack.pop();
+          newNumber = value2 - value1;
           break;
         case "*":
-          newNumber = stack.pop() * stack.pop();
+          newNumber = value2 * value1;
           break;
         case "/":
-          newNumber = stack.pop() / stack.pop();
+          newNumber = value2 / value1;
           break;
       }
       console.log(newNumber);
@@ -101,11 +103,11 @@ function evaluatePostfix(sequence: string): number {
 }
 // Example Test Cases:
 console.log(
-  //evaluatePostfix("3 4 +"), // 7
-  evaluatePostfix("5 1 2 + 4 * + 3 -") // 14
-  //evaluatePostfix("10 2 8 * + 3 -"), // 23
-  //evaluatePostfix("6 2 /"), // 3
-  //evaluatePostfix("4 5 * 2 /") // 10
+  evaluatePostfix("3 4 +"), // 7
+  evaluatePostfix("5 1 2 + 4 * + 3 -"), // 14
+  evaluatePostfix("10 2 8 * + 3 -"), // 23
+  evaluatePostfix("6 2 /"), // 3
+  evaluatePostfix("4 5 * 2 /") // 10
 );
 
 // ==============================
