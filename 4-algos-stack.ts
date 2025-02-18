@@ -73,31 +73,25 @@ function evaluatePostfix(sequence: string): number {
   for (const expression of expressions) {
     let number = parseInt(expression);
     if (isNaN(number)) {
-      let newNumber = 0;
-      console.log(expression);
       let value1 = stack.pop();
       let value2 = stack.pop();
       switch (expression) {
         case "+":
-          newNumber = value2 + value1;
+          stack.push(value2 + value1);
           break;
         case "-":
-          newNumber = value2 - value1;
+          stack.push(value2 - value1);
           break;
         case "*":
-          newNumber = value2 * value1;
+          stack.push(value2 * value1);
           break;
         case "/":
-          newNumber = value2 / value1;
+          stack.push(value2 / value1);
           break;
       }
-      console.log(newNumber);
-      stack.push(newNumber);
     } else {
-      console.log(number);
       stack.push(number);
     }
-    console.log(stack);
   }
   return stack.peek();
 }
