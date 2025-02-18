@@ -67,8 +67,16 @@ console.log(
 // The function should use a stack to process numbers and operators.
 // Assume the input is a space-separated string of numbers and `+`, `-`, `*`, or `/` operators.
 
+function evaluatePostfix(sequence: string): number {
+  const stack = new Stack();
+  const expressions = sequence.split(" ");
+  for (const expression of expressions) {
+    let number = parseInt(expression);
+    console.log(!isNaN(number));
+  }
+}
 // Example Test Cases:
-// evaluatePostfix("3 4 +") // 7
+console.log(evaluatePostfix("3 4 +")); // 7
 // evaluatePostfix("5 1 2 + 4 * + 3 -") // 14
 // evaluatePostfix("10 2 8 * + 3 -") // 23
 // evaluatePostfix("6 2 /") // 3
