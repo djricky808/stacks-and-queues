@@ -34,26 +34,18 @@ function reverseString(string: string): string {
 function isValidParentheses(string: string): boolean {
   const stack = new Stack();
   for (const symbol of string) {
-    if (symbol === "}") {
-      if (stack.peek() === "{") {
-        stack.pop();
-      } else {
-        return false;
-      }
-    } else if (symbol === "]") {
-      if (stack.peek() === "[") {
-        stack.pop();
-      } else {
-        return false;
-      }
-    } else if (symbol === ")") {
-      if (stack.peek() === "(") {
-        stack.pop();
-      } else {
-        return false;
-      }
-    } else {
-      stack.push(symbol);
+    switch (symbol) {
+      case "}":
+        stack.peek() === "{" ? stack.pop() : false;
+        break;
+      case "]":
+        stack.peek() === "[" ? stack.pop() : false;
+        break;
+      case ")":
+        stack.peek() === "(" ? stack.pop() : false;
+        break;
+      default:
+        stack.push(symbol);
     }
   }
   return stack.isEmpty() ? true : false;
