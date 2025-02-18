@@ -52,13 +52,13 @@ function isValidParentheses(string: string): boolean {
 }
 
 // Example Test Cases:
-console.log(
-  isValidParentheses("({[]})"), // true
-  isValidParentheses("({[)]}"), // false
-  isValidParentheses("()"), // true
-  isValidParentheses("{[()]}"), // true
-  isValidParentheses("(((") // false
-);
+// console.log(
+//   isValidParentheses("({[]})"), // true
+//   isValidParentheses("({[)]}"), // false
+//   isValidParentheses("()"), // true
+//   isValidParentheses("{[()]}"), // true
+//   isValidParentheses("(((") // false
+// );
 
 // ==============================
 // 3️⃣ Evaluate a Postfix Expression
@@ -72,15 +72,41 @@ function evaluatePostfix(sequence: string): number {
   const expressions = sequence.split(" ");
   for (const expression of expressions) {
     let number = parseInt(expression);
-    console.log(!isNaN(number));
+    if (isNaN(number)) {
+      let newNumber = 0;
+      console.log(expression);
+      switch (expression) {
+        case "+":
+          newNumber = stack.pop() + stack.pop();
+          break;
+        case "-":
+          newNumber = stack.pop() - stack.pop();
+          break;
+        case "*":
+          newNumber = stack.pop() * stack.pop();
+          break;
+        case "/":
+          newNumber = stack.pop() / stack.pop();
+          break;
+      }
+      console.log(newNumber);
+      stack.push(newNumber);
+    } else {
+      console.log(number);
+      stack.push(number);
+    }
+    console.log(stack);
   }
+  return stack.peek();
 }
 // Example Test Cases:
-console.log(evaluatePostfix("3 4 +")); // 7
-// evaluatePostfix("5 1 2 + 4 * + 3 -") // 14
-// evaluatePostfix("10 2 8 * + 3 -") // 23
-// evaluatePostfix("6 2 /") // 3
-// evaluatePostfix("4 5 * 2 /") // 10
+console.log(
+  //evaluatePostfix("3 4 +"), // 7
+  evaluatePostfix("5 1 2 + 4 * + 3 -") // 14
+  //evaluatePostfix("10 2 8 * + 3 -"), // 23
+  //evaluatePostfix("6 2 /"), // 3
+  //evaluatePostfix("4 5 * 2 /") // 10
+);
 
 // ==============================
 // 4️⃣ Next Greater Element
