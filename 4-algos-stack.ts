@@ -111,8 +111,24 @@ function evaluatePostfix(sequence: string): number {
 // The next greater element of an element **x** is the first element to the right that is greater than **x**.
 // If none exists, return `-1` for that element. Use a stack for efficiency.
 
+function nextGreaterElement(numbers: number[]): number[] {
+  const stack = new Stack();
+  const greatest = new Array(numbers.length).fill(-1);
+
+  for (let i = numbers.length - 1; i >= 0; i--) {
+    while (!stack.isEmpty() && stack.peek() <= numbers[i]) {
+      stack.pop();
+    }
+    if (!stack.isEmpty()) {
+      greatest[i] = stack.peek();
+    }
+    stack.push(numbers[i]);
+  }
+  return greatest;
+}
+
 // Example Test Cases:
-// nextGreaterElement([4, 5, 2, 10, 8]) // [5, 10, 10, -1, -1]
+console.log(nextGreaterElement([4, 5, 2, 10, 8])); // [5, 10, 10, -1, -1]
 // nextGreaterElement([3, 2, 1]) // [-1, -1, -1]
 // nextGreaterElement([1, 3, 2, 4]) // [3, 4, 4, -1]
 
