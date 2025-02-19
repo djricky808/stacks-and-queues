@@ -128,9 +128,11 @@ function nextGreaterElement(numbers: number[]): number[] {
 }
 
 // Example Test Cases:
-console.log(nextGreaterElement([4, 5, 2, 10, 8])); // [5, 10, 10, -1, -1]
-// nextGreaterElement([3, 2, 1]) // [-1, -1, -1]
-// nextGreaterElement([1, 3, 2, 4]) // [3, 4, 4, -1]
+// console.log(
+//   nextGreaterElement([4, 5, 2, 10, 8]), // [5, 10, 10, -1, -1]
+//   nextGreaterElement([3, 2, 1]), // [-1, -1, -1]
+//   nextGreaterElement([1, 3, 2, 4])
+// ); // [3, 4, 4, -1]
 
 // ==============================
 // 5️⃣ Daily Temperatures
@@ -139,7 +141,39 @@ console.log(nextGreaterElement([4, 5, 2, 10, 8])); // [5, 10, 10, -1, -1]
 // return an array **answer** where `answer[i]` is the number of days you have to wait after the `i-th` day
 // to get a warmer temperature. If there is no future day with a warmer temperature, return `0`.
 
+function dailyTemperatures(temperatures: number[]): number[] {
+  const stack = new Stack();
+  const popped = new Stack();
+  let days = new Array(temperatures.length).fill(0);
+
+  for (let i = temperatures.length - 1; i >= 0; i--) {
+    //Goes down temperature stack and will keep count of how far it needs to go to get to a number that is higher.
+    while (!stack.isEmpty()) {
+      if (temperatures[i] > stack.peek()) {
+        popped.push(stack.pop());
+      } else {
+        break;
+      }
+    }
+    //Makes day zero if there is no higher number
+    if (stack.isEmpty()) {
+      days[i] = 0;
+    } else {
+      //Makes day by how many numbers it had to pass to get to a higher number
+      days[i] = popped.size() + 1;
+    }
+    //Moves all the popped numbers back into the main temperature stack while adding the new one.
+    while (!popped.isEmpty()) {
+      stack.push(popped.pop());
+    }
+    stack.push(temperatures[i]);
+  }
+  return days;
+}
+
 // Example Test Cases:
-// dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]) // [1, 1, 4, 2, 1, 1, 0, 0]
-// dailyTemperatures([30, 40, 50, 60]) // [1, 1, 1, 0]
-// dailyTemperatures([30, 20, 10]) // [0, 0, 0]
+console.log(
+  dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]), // [1, 1, 4, 2, 1, 1, 0, 0]
+  dailyTemperatures([30, 40, 50, 60]), // [1, 1, 1, 0]
+  dailyTemperatures([30, 20, 10])
+); // [0, 0, 0]
