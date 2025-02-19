@@ -1,4 +1,5 @@
 // BE SURE TO IMPORT YOUR QUEUE CLASS
+import { Queue } from "./1-queue";
 
 // ==============================
 // 1️⃣ Implement a Recent Calls Counter
